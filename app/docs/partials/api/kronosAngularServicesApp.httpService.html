@@ -1,0 +1,69 @@
+<h1><code ng:non-bindable="">httpService</code>
+<div><span class="hint">service in module <code ng:non-bindable="">kronosAngularServicesApp</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="kronosangularservicesapp-httpservice-page"><h3 id="description_httpservice">httpService</h3>
+<h3 id="description_a-service-that-abstracts-$resource-for-simple-and-agnostic-network-calls">a service that abstracts $resource for simple and agnostic network calls.</h3>
+<h3 id="description_any-special-treatment-or-data-can-be-abstracted-in-factories">any special treatment or data can be abstracted in factories.</h3>
+<h3 id="description_will-need-some-work-to-pass-$token-and-$serverpath-for-kronos-schedule">will need some work to pass $token and $serverPath for Kronos Schedule.</h3>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/api/ng.$resource">$resource</a></code>
+</li>
+</ul>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_delete">delete(name, id)</h3>
+<div class="delete"><div class="httpservice-delete-page"><p>Method to DELETE data through an API</p>
+</div><h5 id="methods_delete_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>name</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="httpservice-delete-page"><p>The name of the record you&#39;d like to delete.</p>
+</div></td></tr><tr><td>id</td><td><a href="" class="label type-hint type-hint-int">int</a></td><td><div class="httpservice-delete-page"><p>The id or identifier of the specific record to delete.</p>
+</div></td></tr></tbody></table><h5 id="methods_delete_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-response">response</a></td><td><div class="httpservice-delete-page"><p>The response will be from the server, with an id, and success or failure.</p>
+</div></td></tr></table><h4 id="methods_delete_example">Example</h4>
+<div class="example"><div class="httpservice-delete-page"><p>httpService.delete(&#39;asset&#39;, id);</p>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_get">get(name, id)</h3>
+<div class="get"><div class="httpservice-get-page"><p>Method to GET (fetch) a record from an API</p>
+</div><h5 id="methods_get_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>name</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="httpservice-get-page"><p>The name of the records you&#39;d like to fetch.</p>
+</div></td></tr><tr><td>id</td><td><a href="" class="label type-hint type-hint-int">int</a></td><td><div class="httpservice-get-page"><p>The id or identifier of the specific record to fetch.</p>
+</div></td></tr></tbody></table><h5 id="methods_get_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-response">response</a></td><td><div class="httpservice-get-page"><p>The response will be from the server, with data or failure.</p>
+</div></td></tr></table><h4 id="methods_get_example">Example</h4>
+<div class="example"><div class="httpservice-get-page"><p>httpService.get(&#39;asset&#39;, 1);</p>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_getlist">getList(name)</h3>
+<div class="getlist"><div class="httpservice-getlist-page"><p>Method to GET (fetch) a list of records from an API</p>
+</div><h5 id="methods_getlist_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>name</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="httpservice-getlist-page"><p>The name of the records you&#39;d like to fetch.</p>
+</div></td></tr></tbody></table><h5 id="methods_getlist_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-response">response</a></td><td><div class="httpservice-getlist-page"><p>The response will be from the server, with data or failure (Array).</p>
+</div></td></tr></table><h4 id="methods_getlist_example">Example</h4>
+<div class="example"><div class="httpservice-getlist-page"><p>httpService.getList(&#39;asset&#39;);</p>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_patch">patch(name, id, payload)</h3>
+<div class="patch"><div class="httpservice-patch-page"><p>Method to PATCH (update) data through an API</p>
+</div><h5 id="methods_patch_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>name</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="httpservice-patch-page"><p>The name of the record you&#39;d like to update.</p>
+</div></td></tr><tr><td>id</td><td><a href="" class="label type-hint type-hint-int">int</a></td><td><div class="httpservice-patch-page"><p>The id or identifier of the specific record to update.</p>
+</div></td></tr><tr><td>payload</td><td><a href="" class="label type-hint type-hint-obj">obj</a></td><td><div class="httpservice-patch-page"><p>Payload structured in the form expected by the API.</p>
+</div></td></tr></tbody></table><h5 id="methods_patch_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-response">response</a></td><td><div class="httpservice-patch-page"><p>The response will be from the server, with an id, and success or failure.</p>
+</div></td></tr></table><h4 id="methods_patch_example">Example</h4>
+<div class="example"><div class="httpservice-patch-page"><p>httpService.patch(&#39;asset&#39;, id, payload);</p>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_post">post(name, payload)</h3>
+<div class="post"><div class="httpservice-post-page"><p>Method to POST (create) data through an API</p>
+</div><h5 id="methods_post_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>name</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="httpservice-post-page"><p>The name of the records you&#39;d like to update.</p>
+</div></td></tr><tr><td>payload</td><td><a href="" class="label type-hint type-hint-obj">obj</a></td><td><div class="httpservice-post-page"><p>Payload structured in the form expected by the API.</p>
+</div></td></tr></tbody></table><h5 id="methods_post_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-response">response</a></td><td><div class="httpservice-post-page"><p>The response will be from the server, with an id, and success or failure.</p>
+</div></td></tr></table><h4 id="methods_post_example">Example</h4>
+<div class="example"><div class="httpservice-post-page"><p>httpService.post(&#39;asset&#39;, payload);</p>
+</div></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
