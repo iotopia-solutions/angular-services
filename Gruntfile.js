@@ -16,10 +16,9 @@ module.exports = function (grunt) {
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
-    cdnify: 'grunt-google-cdn'
+    cdnify: 'grunt-google-cdn',
+    ngdocs: 'grunt-ngdocs'
   });
-
-  grunt.loadNpmTasks('grunt-ngdocs');
 
   // Configurable paths for the application
   var appConfig = {
@@ -474,6 +473,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
+      'ngdocs',
       'concurrent:server',
       'postcss:server',
       'connect:livereload',
@@ -515,7 +515,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('docs', [
-    'clean',
     'ngdocs'
   ]);
 
