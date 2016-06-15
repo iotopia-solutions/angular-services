@@ -3,7 +3,7 @@
 describe('Service: httpService', function () {
 
   // load the service's module
-  beforeEach(module('kronosAngularServicesApp'));
+  beforeEach(module('angularServicesApp'));
 
   // instantiate service
   var httpService;
