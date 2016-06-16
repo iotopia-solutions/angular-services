@@ -37,7 +37,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "angularServicesApp",
       "shortDescription": "httpService",
-      "keywords": "$promise $resource $serverpath $token abstracted abstracts access agnostic angularservicesapp api asset calls create crud data delete endpoint error expected factories fetch form httpservice identifier kronos method network output pass payload read record return schedule service simple special specific structured success treatment update work"
+      "keywords": "$promise $resource $serverpath $token abstracted abstracts access agnostic angularservicesapp api assets calls create crud data delete endpoint error factories fetch future httpservice identifier kronos localhost method network object options output paramseters pass path payload read record request requestobj requirements return schedule service set simple special specific success treatment update url work"
     }
   ],
   "apis": {

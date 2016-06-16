@@ -14,44 +14,55 @@
 </li>
 </ul>
 <div class="member method"><h2 id="methods">Methods</h2>
-<ul class="methods"><li><h3 id="methods_create">create(endpoint, payload)</h3>
+<ul class="methods"><li><h3 id="methods_create">create(requestObj)</h3>
 <div class="create"><div class="httpservice-create-page"><p>Method to create data through an API</p>
-</div><h5 id="methods_create_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>endpoint</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="httpservice-create-page"><p>The name of the endpoint you&#39;d like to create a record. *required</p>
-</div></td></tr><tr><td>payload</td><td><a href="" class="label type-hint type-hint-obj">obj</a></td><td><div class="httpservice-create-page"><p>Payload structured in the form expected by the API. *required</p>
-</div></td></tr></tbody></table><h5 id="methods_create_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-httppromise">httpPromise</a></td><td><div class="httpservice-create-page"><p>The output will return a $promise, with success/data or an error</p>
+</div><h5 id="methods_create_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>requestObj</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="httpservice-create-page"><p>pass a request Object containing the following paramseters *required</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="httpservice-create-page"><p>set the path, endpoint and more in the future. *required</p>
+</div></td></tr><tr><td>options.path</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="httpservice-create-page"><p>The path of the URL you&#39;d like to access. *required</p>
+</div></td></tr><tr><td>options.endpoint</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="httpservice-create-page"><p>The name of the endpoint you&#39;d like to access. *required</p>
+</div></td></tr><tr><td>payload</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="httpservice-create-page"><p>The data payload object per requirements of the api *required</p>
+</div></td></tr></tbody></table></td></tr></tbody></table><h5 id="methods_create_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-httppromise">httpPromise</a></td><td><div class="httpservice-create-page"><p>The output will return a $promise, with success/data or an error</p>
 </div></td></tr></table><h4 id="methods_create_example">Example</h4>
-<div class="example"><div class="httpservice-create-page"><p>httpService.create(&#39;asset&#39;, payload);</p>
+<div class="example"><div class="httpservice-create-page"><p>httpService.create(payload, {options:{path: &#39;localhost:4100&#39;, endpoint: &#39;assets&#39;}});</p>
 </div></div>
 </div>
 </li>
-<li><h3 id="methods_delete">delete(endpoint, id)</h3>
+<li><h3 id="methods_delete">delete(requestObj)</h3>
 <div class="delete"><div class="httpservice-delete-page"><p>Method to DELETE data through an API</p>
-</div><h5 id="methods_delete_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>endpoint</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="httpservice-delete-page"><p>The name of the endpoint of the record to delete. *required</p>
-</div></td></tr><tr><td>id</td><td><a href="" class="label type-hint type-hint-int">int</a></td><td><div class="httpservice-delete-page"><p>The id or identifier of the specific record to delete. *required</p>
-</div></td></tr></tbody></table><h5 id="methods_delete_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-httppromise">httpPromise</a></td><td><div class="httpservice-delete-page"><p>The output will return a $promise, with success/data or an error</p>
+</div><h5 id="methods_delete_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>requestObj</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="httpservice-delete-page"><p>pass a request Object containing the following paramseters *required</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="httpservice-delete-page"><p>set the path, endpoint and more in the future. *required</p>
+</div></td></tr><tr><td>options.path</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="httpservice-delete-page"><p>The path of the URL you&#39;d like to access. *required</p>
+</div></td></tr><tr><td>options.endpoint</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="httpservice-delete-page"><p>The name of the endpoint you&#39;d like to access. *required</p>
+</div></td></tr><tr><td>id</td><td><a href="" class="label type-hint type-hint-int">int</a></td><td><div class="httpservice-delete-page"><p>The id of the record you&#39;d like to delete. *required</p>
+</div></td></tr></tbody></table></td></tr></tbody></table><h5 id="methods_delete_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-httppromise">httpPromise</a></td><td><div class="httpservice-delete-page"><p>The output will return a $promise, with success/data or an error</p>
 </div></td></tr></table><h4 id="methods_delete_example">Example</h4>
-<div class="example"><div class="httpservice-delete-page"><p>httpService.delete(&#39;asset&#39;, id);</p>
+<div class="example"><div class="httpservice-delete-page"><p>httpService.update({id: 43, options:{path: &#39;localhost:4100&#39;, endpoint: &#39;assets&#39;}});</p>
 </div></div>
 </div>
 </li>
-<li><h3 id="methods_read">read(endpoint, id)</h3>
+<li><h3 id="methods_read">read(requestObj)</h3>
 <div class="read"><div class="httpservice-read-page"><p>Method to read data from an API</p>
-</div><h5 id="methods_read_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>endpoint</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="httpservice-read-page"><p>The name of the endpoint you&#39;d like to access. *required</p>
-</div></td></tr><tr><td>id</td><td><a href="" class="label type-hint type-hint-int">int</a></td><td><div class="httpservice-read-page"><p>The id or identifier of the specific record to fetch. *optional</p>
-</div></td></tr></tbody></table><h5 id="methods_read_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-httppromise">httpPromise</a></td><td><div class="httpservice-read-page"><p>The output will return a $promise, with success/data or an error</p>
+</div><h5 id="methods_read_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>requestObj</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="httpservice-read-page"><p>pass a request Object containing the following paramseters *required</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="httpservice-read-page"><p>set the path, endpoint and more in the future. *required</p>
+</div></td></tr><tr><td>options.path</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="httpservice-read-page"><p>The path of the URL you&#39;d like to access. *required</p>
+</div></td></tr><tr><td>options.endpoint</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="httpservice-read-page"><p>The name of the endpoint you&#39;d like to access. *required</p>
+</div></td></tr><tr><td>id <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-int">int</a></td><td><div class="httpservice-read-page"><p>The id or identifier of the specific record to fetch.</p>
+</div></td></tr></tbody></table></td></tr></tbody></table><h5 id="methods_read_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-httppromise">httpPromise</a></td><td><div class="httpservice-read-page"><p>The output will return a $promise, with success/data or an error</p>
 </div></td></tr></table><h4 id="methods_read_example">Example</h4>
-<div class="example"><div class="httpservice-read-page"><p>httpService.read(&#39;asset&#39;, 1);</p>
+<div class="example"><div class="httpservice-read-page"><p>httpService.read({id: 401, options:{path: &#39;localhost:4100&#39;, endpoint: &#39;assets&#39;}});</p>
 </div></div>
 </div>
 </li>
-<li><h3 id="methods_update">update(endpoint, id, payload)</h3>
+<li><h3 id="methods_update">update(requestObj)</h3>
 <div class="update"><div class="httpservice-update-page"><p>Method to update data through an API</p>
-</div><h5 id="methods_update_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>endpoint</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="httpservice-update-page"><p>The name of the endpoint you&#39;d like to update. *required</p>
-</div></td></tr><tr><td>id</td><td><a href="" class="label type-hint type-hint-int">int</a></td><td><div class="httpservice-update-page"><p>The id or identifier of the specific record to update. *required</p>
-</div></td></tr><tr><td>payload</td><td><a href="" class="label type-hint type-hint-obj">obj</a></td><td><div class="httpservice-update-page"><p>Payload structured in the form expected by the API. *required</p>
-</div></td></tr></tbody></table><h5 id="methods_update_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-httppromise">httpPromise</a></td><td><div class="httpservice-update-page"><p>The output will return a $promise, with success/data or an error</p>
+</div><h5 id="methods_update_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>requestObj</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="httpservice-update-page"><p>pass a request Object containing the following paramseters *required</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="httpservice-update-page"><p>set the path, endpoint and more in the future. *required</p>
+</div></td></tr><tr><td>options.path</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="httpservice-update-page"><p>The path of the URL you&#39;d like to access. *required</p>
+</div></td></tr><tr><td>options.endpoint</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="httpservice-update-page"><p>The name of the endpoint you&#39;d like to access. *required</p>
+</div></td></tr><tr><td>payload</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="httpservice-update-page"><p>The data payload object per requirements of the api *required</p>
+</div></td></tr></tbody></table></td></tr></tbody></table><h5 id="methods_update_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-httppromise">httpPromise</a></td><td><div class="httpservice-update-page"><p>The output will return a $promise, with success/data or an error</p>
 </div></td></tr></table><h4 id="methods_update_example">Example</h4>
-<div class="example"><div class="httpservice-update-page"><p>httpService.update(&#39;asset&#39;, id, payload);</p>
+<div class="example"><div class="httpservice-update-page"><p>httpService.update({payload, options:{path: &#39;localhost:4100&#39;, endpoint: &#39;assets&#39;}});</p>
 </div></div>
 </div>
 </li>

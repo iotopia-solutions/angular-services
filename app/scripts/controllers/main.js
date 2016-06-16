@@ -11,7 +11,7 @@ angular.module('angularServicesApp')
   .controller('MainCtrl', function ($scope, httpService) {
 
     var $this = this;
-
+    var serverPath = 'localhost:4100';
     /**
      * @ngdoc
      * @name MainCtrl.setData
@@ -60,11 +60,24 @@ angular.module('angularServicesApp')
 
     this.getList = function(scope){
       var setter = scope ? this.setListScope : this.setList;
-      return httpService.read('assets').then(setter, this.errorHandler);
+      var httpRequest = {
+        options:{
+          path: serverPath,
+          endpoint: 'assets'
+        }
+      };
+      return httpService.read(httpRequest).then(setter, this.errorHandler);
     };
 
     this.getById = function(id){
-     return httpService.read('assets', id).then(this.setItem, this.errorHandler);
+     var httpRequest = {
+       id: id,
+       options:{
+         path: serverPath,
+         endpoint: 'assets'
+       }
+     };
+     return httpService.read(httpRequest).then(this.setItem, this.errorHandler);
     };
 
 });
