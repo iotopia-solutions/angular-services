@@ -107,7 +107,11 @@ angular.module('angularServicesApp')
      * @return {httpPromise} The output will return a $promise, with success/data or an error
      */
     this.read = function (name, id) {
-      if(!id){request.actions.read.isArray = true;}
+      if(!id){
+        request.actions.read.isArray = true;
+      } else{
+        delete request.actions.read.isArray;
+      }
       return requestResource.read({
         name: name,
         id: id
