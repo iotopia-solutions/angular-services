@@ -17,6 +17,22 @@ module.exports = function(config) {
       'jasmine'
     ],
 
+    // coverage reporter generates the coverage
+    reporters: ['progress', 'coverage'],
+
+    preprocessors: {
+     // source files, that you wanna generate coverage for
+     // do not include tests or libraries
+     // (these files will be instrumented by Istanbul)
+     'app/scripts/**/*.js': ['coverage']
+    },
+
+    // optionally, configure the reporter
+    coverageReporter: {
+     type : 'html',
+     dir : 'test/coverage/'
+    },
+
     // list of files / patterns to load in the browser
     files: [
       // bower:js
@@ -49,12 +65,13 @@ module.exports = function(config) {
     plugins: [
       'karma-firefox-launcher',
       'karma-phantomjs-launcher',
-      'karma-jasmine'
+      'karma-jasmine',
+      'karma-coverage'
     ],
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false,
+    singleRun: true,
 
     colors: true,
 

@@ -13,8 +13,8 @@ angular.module('angularServicesApp')
   .service('httpService', function ($resource) {
 
     var request = {
-      'url': 'http://' + '/:path' + '/:endpoint/:id',
-      'actions': {
+      'url': 'http://' +'/:path' + '/:endpoint/:id',
+      'actions': { 
         'read': {
           'method': 'GET',
         },

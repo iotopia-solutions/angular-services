@@ -17,6 +17,7 @@
     "describe",
     "it",
     "beforeEach",
+    "afterEach",
     "inject",
     "expect"
   ]
