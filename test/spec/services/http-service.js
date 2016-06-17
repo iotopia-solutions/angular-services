@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Asset Service', function() {
+describe('httpService', function() {
 
   // load the service's module
   beforeEach(module('angularServicesApp'));
@@ -44,4 +44,5 @@ describe('Asset Service', function() {
       httpBackend.flush();
     });
   });
+  
 });
