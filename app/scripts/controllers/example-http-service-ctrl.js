@@ -36,6 +36,17 @@ angular.module('kronos.apps.services')
       $this[name] = angular.copy(data);
     };
 
+    this.clearData = function(name, scope){
+      if(!name){
+        return;
+      }
+      if(scope){
+        delete $scope[name];
+        return;
+      }
+      delete $this[name];
+    };
+
     this.getList = function(scope){
       var httpRequest = {
         options:{
@@ -61,5 +72,8 @@ angular.module('kronos.apps.services')
        $this.setData('assetItem', data, false);
      });
    };
+
+
+
 
 });

@@ -1,20 +1,35 @@
 <div class="well">
-  <p><a class="btn btn-sm btn-success" ng-click="exampleHttpServiceCtrl.getList(false)">httpService.read('assets') to exampleHttpServiceCtrl <span class="glyphicon glyphicon-ok"></span></a></p>
-  <p><a class="btn btn-sm btn-primary" ng-click="exampleHttpServiceCtrl.getList(true)">httpService.read('assets') to $scope <span class="glyphicon glyphicon-ok"></span></a></p>
-  <p><a class="btn btn-sm btn-warning" ng-click="exampleHttpServiceCtrl.getById(139)">httpService.read('assets', 139) to exampleHttpServiceCtrl <span class="glyphicon glyphicon-ok"></span></a></p>
-
+  <p>
+    <a class="btn btn-sm btn-success" ng-click="exampleHttpServiceCtrl.getList(false)">
+    httpService.read('assets') to exampleHttpServiceCtrl <span class="glyphicon glyphicon-ok"></span>
+    </a>
+    <a class="btn btn-sm" ng-if="exampleHttpServiceCtrl.assetsList" ng-click="exampleHttpServiceCtrl.clearData('assetsList', false)">Clear</a>
+  </p>
+  <p>
+    <a class="btn btn-sm btn-primary" ng-click="exampleHttpServiceCtrl.getList(true)">
+      httpService.read('assets') to $scope <span class="glyphicon glyphicon-ok"></span>
+    </a>
+    <a class="btn btn-sm" ng-if="assetsList" ng-click="exampleHttpServiceCtrl.clearData('assetsList', true)">Clear</a>
+  </p>
+  </p>
+  <p>
+    <a class="btn btn-sm btn-warning" ng-click="exampleHttpServiceCtrl.getById(139)">
+      httpService.read('assets', 139) to exampleHttpServiceCtrl <span class="glyphicon glyphicon-ok"></span>
+    <a class="btn btn-sm" ng-if="exampleHttpServiceCtrl.assetItem" ng-click="exampleHttpServiceCtrl.clearData('assetItem', false)">Clear</a>
+    </a>
+  </p>
   <!--TODO: httpService.post('assets', id, payload), httpService.patch('assets', id, payload), httpService.delete('assets', id) -->
 </div>
 
 <div class="well">
 
-  <div ng-if="exampleHttpServiceCtrl.assetsList.length">
+  <div ng-if="exampleHttpServiceCtrl.assetsList">
     <h3>httpService.read('assets') response:</h3>
     <h4>exampleHttpServiceCtrl.assetsList:</h4>
     <p>{{exampleHttpServiceCtrl.assetsList}}</p>
   </div>
 
-  <div ng-if="assetsList.length">
+  <div ng-if="assetsList">
     <h3>httpService.read('assets') response:</h3>
     <h4>$scope.assetsList:</h4>
     <p>{{assetsList}}</p>
