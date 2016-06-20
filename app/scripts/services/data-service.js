@@ -2,14 +2,31 @@
 
 /**
  * @ngdoc service
- * @name angularServicesApp.dataService
+ * @name kronos.apps.services.dataService
  * @description
  * # dataService
- * Service in the angularServicesApp.
+ * Service in the kronos.apps.services.
  */
-angular.module('angularServicesApp')
-  .service('dataService', function () {
+angular.module('kronos.apps.services')
+  .service('dataService', function (httpService) {
 
-    // AngularJS will instantiate a singleton by calling "new" on this function
+    function success(dataFromAPI){
+      if(dataFromAPI){
+        return dataFromAPI;
+      }
+    }
 
-  });
+    //TODO: hook error handling to a message or dialog service
+    function error(data){
+      console.log('error', data);
+    }
+
+    this.http = function(method, params){
+      return httpService[method](params).then(function(data){
+        return success(data);
+      }, function(data){
+        return error(data);
+      });
+    };
+
+});

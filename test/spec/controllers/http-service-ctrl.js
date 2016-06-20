@@ -3,21 +3,21 @@
 describe('Controller: MainCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('angularServicesApp'));
+  beforeEach(module('kronos.apps.services'));
 
-  var MainCtrl,
+  var httpServiceCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
+    httpServiceCtrl = $controller('exampleHttpServiceCtrl', {
       $scope: scope
       // place here mocked dependencies
     });
   }));
 
   it('should attach a list of awesomeThings to the scope', function () {
-    expect(MainCtrl.setData).toBeDefined();  
+    expect(httpServiceCtrl.setData).toBeDefined();
   });
 });

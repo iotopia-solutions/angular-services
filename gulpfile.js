@@ -150,7 +150,7 @@ gulp.task('clean:dist', function (cb) {
   rimraf('./dist', cb);
 });
 
-gulp.task('client:build', ['html', 'styles'], function() {
+gulp.task('client:build', ['html', 'styles', 'bower'], function() {
 var jsFilter = $.filter('**/*.js');
 var cssFilter = $.filter('**/*.css');
 

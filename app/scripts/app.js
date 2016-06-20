@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name angularServicesApp
+ * @name kronos.apps.services
  * @description
- * # angularServicesApp
+ * # kronos.apps.services
  *
  * Main module of the application.
  */
 angular
-  .module('angularServicesApp', [
+  .module('kronos.apps.services', [
     'ngResource',
     'ngRoute'
   ])
@@ -17,8 +17,8 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'MainCtrl'
+        controller: 'exampleHttpServiceCtrl',
+        controllerAs: 'exampleHttpServiceCtrl'
       })
       .otherwise({
         redirectTo: '/'

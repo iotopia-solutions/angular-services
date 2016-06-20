@@ -1,9 +1,9 @@
 'use strict';
 
-describe('httpService', function() {
+describe('Service: httpService', function() {
 
   // load the service's module
-  beforeEach(module('angularServicesApp'));
+  beforeEach(module('kronos.apps.services'));
 
   // instantiate service
   var httpService;

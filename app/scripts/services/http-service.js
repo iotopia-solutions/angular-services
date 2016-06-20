@@ -1,7 +1,7 @@
 'use strict';
 /**
 * @ngdoc service
-* @name angularServicesApp.httpService
+* @name kronos.apps.services.httpService
 * @description
 * # httpService
 * # a service that abstracts $resource for simple and agnostic CRUD network calls.
@@ -9,29 +9,34 @@
 * # will need some work to pass $token and $serverPath for Kronos Schedule.
 * @requires $resource
 */
-angular.module('angularServicesApp')
+angular.module('kronos.apps.services')
   .service('httpService', function ($resource) {
 
     var request = {
       'url': 'http://' +'/:path' + '/:endpoint/:id',
-      'actions': { 
+      'actions': {
         'read': {
           'method': 'GET',
+          'cache': true
         },
         'create': {
-          'method': 'POST'
+          'method': 'POST',
+          'cache': true
         },
         'update': {
-          'method': 'PUT'
+          'method': 'PUT',
+          'cache': true
         },
         'delete': {
-          'method': 'DELETE'
+          'method': 'DELETE',
+          'cache': true
         }
       },
       'parameters':{
         'path' : '@path',
         'endpoint': '@endpoint',
-        'id': '@id'
+        'id': '@id',
+        'limit' : '@limit'
       }
     };
 
@@ -119,7 +124,7 @@ angular.module('angularServicesApp')
       } else {
         delete request.actions.read.isArray;
       }
-      return requestResource.read({path: obj.options.path, endpoint: obj.options.endpoint, id: obj.id}).$promise;
+      return requestResource.read({path: obj.options.path, endpoint: obj.options.endpoint, limit: obj.options.limit, id: obj.id}).$promise;
     };
 
 });

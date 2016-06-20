@@ -1,5 +1,5 @@
 {
-  "name": "angularservices",
+  "name": "kronos.apps.services",
   "private": true,
   "devDependencies": {
     "gulp": "^3.9.0",
