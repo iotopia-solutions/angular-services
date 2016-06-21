@@ -12,10 +12,11 @@ angular.module('kronos.apps.services')
 
     var $this = this;
     var serverPath = 'localhost:4100';
+
     /**
      * @ngdoc
      * @name exampleHttpServiceCtrl.setData
-     * @methodOf angularServicesApp.controller:exampleHttpServiceCtrl
+     * @methodOf kronos.apps.services.controller:exampleHttpServiceCtrl
      * @function
      * @description
      * Method to set data in the controller, or in the $scope
@@ -55,9 +56,9 @@ angular.module('kronos.apps.services')
           limit: 10
         }
       };
-      dataService.http('read', httpRequest).then(function(data){
+      dataService.http('read', httpRequest, false).then(function(data){
         $this.setData('assetsList', data, scope);
-     });
+      });
     };
 
     this.getById = function(id){
@@ -68,12 +69,9 @@ angular.module('kronos.apps.services')
          endpoint: 'assets'
        }
      };
-     dataService.http('read', httpRequest).then(function(data){
+     dataService.http('read', httpRequest, true).then(function(data){
        $this.setData('assetItem', data, false);
      });
    };
-
-
-
 
 });
