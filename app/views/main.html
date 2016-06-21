@@ -17,7 +17,7 @@
     <a class="btn btn-sm" ng-if="exampleHttpServiceCtrl.assetItem" ng-click="exampleHttpServiceCtrl.clearData('assetItem', false)">Clear</a>
     </a>
   </p>
-  <!--TODO: httpService.post('assets', id, payload), httpService.patch('assets', id, payload), httpService.delete('assets', id) -->
+  <!--TODO: dataService.http('create', requestObj), dataService.http('update', requestObj), dataService.http('delete', requestObj) -->
 </div>
 
 <div class="well">
@@ -39,4 +39,5 @@
     <h4>exampleHttpServiceCtrl.assetItem:</h4>
     <p>{{exampleHttpServiceCtrl.assetItem}}</p>
   </div>
+
 </div>

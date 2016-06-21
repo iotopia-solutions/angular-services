@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: exampleHttpServiceCtrl', function () {
 
   // load the controller's module
   beforeEach(module('kronos.apps.services'));
