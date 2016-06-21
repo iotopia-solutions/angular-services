@@ -1,5 +1,11 @@
 # angular-services
 
+# Setup
+
+`npm install` - Will run bower
+
+for Development, you may want to run `npm install yo generator-angular` which enables scaffolding and yeoman
+
 ## Build & development
 
 Run `gulp` for building.
