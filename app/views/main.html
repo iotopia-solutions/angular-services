@@ -1,0 +1,43 @@
+<div class="well">
+  <p>
+    <a class="btn btn-sm btn-success" ng-click="exampleHttpServiceCtrl.getList(false)">
+      dataService.http('read', requestObj, false) to exampleHttpServiceCtrl - not cached. <span class="glyphicon glyphicon-ok"></span>
+    </a>
+    <a class="btn btn-sm" ng-if="exampleHttpServiceCtrl.assetsList" ng-click="exampleHttpServiceCtrl.clearData('assetsList', false)">Clear</a>
+  </p>
+  <p>
+    <a class="btn btn-sm btn-primary" ng-click="exampleHttpServiceCtrl.getList(true)">
+      dataService.http('read', requestObj, false) to $scope - not cached.<span class="glyphicon glyphicon-ok"></span>
+    </a>
+    <a class="btn btn-sm" ng-if="assetsList" ng-click="exampleHttpServiceCtrl.clearData('assetsList', true)">Clear</a>
+  </p>
+  <p>
+    <a class="btn btn-sm btn-warning" ng-click="exampleHttpServiceCtrl.getById(139)">
+      dataService.http('read', requestObj, true) to exampleHttpServiceCtrl - cached.<span class="glyphicon glyphicon-ok"></span>
+    <a class="btn btn-sm" ng-if="exampleHttpServiceCtrl.assetItem" ng-click="exampleHttpServiceCtrl.clearData('assetItem', false)">Clear</a>
+    </a>
+  </p>
+  <!--TODO: dataService.http('create', requestObj), dataService.http('update', requestObj), dataService.http('delete', requestObj) -->
+</div>
+
+<div class="well">
+
+  <div ng-if="exampleHttpServiceCtrl.assetsList">
+    <h3>dataService.http('read', requestObj, false) response:</h3>
+    <h4>exampleHttpServiceCtrl.assetsList:</h4>
+    <p>{{exampleHttpServiceCtrl.assetsList}}</p>
+  </div>
+
+  <div ng-if="assetsList">
+    <h3>dataService.http('read', requestObj, false) response:</h3>
+    <h4>$scope.assetsList:</h4>
+    <p>{{assetsList}}</p>
+  </div>
+
+  <div ng-if="exampleHttpServiceCtrl.assetItem">
+    <h3>dataService.http('read', requestObj, true) response:</h3>
+    <h4>exampleHttpServiceCtrl.assetItem:</h4>
+    <p>{{exampleHttpServiceCtrl.assetItem}}</p>
+  </div>
+
+</div>
