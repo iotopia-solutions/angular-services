@@ -115,6 +115,7 @@ gulp.task('serve', function (cb) {
     ['lint:scripts'],
     ['start:client'],
     ['bower'],
+    ['docs'],
     'watch', cb);
 });
 
@@ -143,6 +144,22 @@ gulp.task('bower', function () {
       ignorePath: '..'
     }))
   .pipe(gulp.dest(yeoman.app + '/views'));
+});
+
+gulp.task('docs', [], function () {
+  var gulpDocs = require('gulp-ngdocs');
+  var options = {
+    html5Mode: false,
+    scripts: [
+    'bower_components/angular/angular.min.js',
+    'bower_components/angular/angular.min.js.map',
+    'bower_components/angular-animate/angular-animate.min.js',
+    'bower_components/angular-animate/angular-animate.min.js.map'
+  ]
+  };
+  return gulp.src(yeoman.app + '/scripts/**/*.js')
+    .pipe(gulpDocs.process(options))
+    .pipe(gulp.dest(yeoman.app + '/docs'));
 });
 
 ///////////
