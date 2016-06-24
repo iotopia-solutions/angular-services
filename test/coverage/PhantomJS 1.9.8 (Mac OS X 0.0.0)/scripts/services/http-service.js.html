@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for scripts/services/http-service.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">scripts/services/</a> http-service.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>15/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>15/15</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+/**
+* @ngdoc service
+* @name kronos.apps.services.httpService
+* @description
+* # httpService
+* # a service that abstracts $resource for simple and agnostic CRUD network calls.
+* unless extra business logic is neccessary, or custom error handling is needed, use the data-service for error handling
+* *** Once in the environment, we may need to pass $token and $serverPath for Kronos Schedule.
+* @requires $resource
+*/
+angular.module('kronos.apps.services')
+  .service('httpService', function ($resource) {
+&nbsp;
+    var request = {
+      'url': 'http://' +'/:path' + '/:endpoint/:id',
+      'actions': {
+        'read': {
+          'method': 'GET'
+        },
+        'create': {
+          'method': 'POST'
+        },
+        'update': {
+          'method': 'PUT'
+        },
+        'delete': {
+          'method': 'DELETE'
+        }
+      },
+      'parameters':{
+        'path' : '@path',
+        'endpoint': '@endpoint',
+        'id': '@id',
+        'limit' : '@limit'
+      }
+    };
+&nbsp;
+    var requestResource = $resource(request.url, request.parameters, request.actions);
+&nbsp;
+    function setReadActions(obj, cache){
+     request.actions.read.isArray = obj.id ? false : true;
+     request.actions.read.cache = cache ? cache : false;
+    }
+&nbsp;
+    /**
+     * @ngdoc
+     * @name httpService.create
+     * @methodOf kronos.apps.services..httpService
+     * @function
+     * @description
+     * Method to create data through an API
+     * @example
+     * httpService.create(payload, {options:{path: 'localhost:4100', endpoint: 'assets'}});
+     * @param {object} requestObj pass a request Object containing the following parameters *required
+     * @param  {object} requestObj.options set the path, endpoint and more in the future. *required
+     * @param  {string} requestObj.options.path The path of the URL you'd like to access. *required
+     * @param  {string} requestObj.options.endpoint The name of the endpoint you'd like to access. *required
+     * @param  {object} requestObj.payload The data payload object per requirements of the api *required
+     * @return {httpPromise} The output will return a $promise, with success/data or an error
+     */
+    this.create = function (obj) {
+      return requestResource.create({path: obj.options.path, endpoint: obj.options.endpoint}, obj.payload).$promise;
+    };
+&nbsp;
+    /**
+     * @ngdoc
+     * @name httpService.delete
+     * @methodOf kronos.apps.services..httpService
+     * @function
+     * @description
+     * Method to DELETE data through an API
+     * @example
+     * httpService.update({id: 43, options:{path: 'localhost:4100', endpoint: 'assets'}});
+     * @param {object} requestObj pass a request Object containing the following parameters *required
+     * @param  {object} requestObj.options set the path, endpoint and more in the future. *required
+     * @param  {string} requestObj.options.path The path of the URL you'd like to access. *required
+     * @param  {string} requestObj.options.endpoint The name of the endpoint you'd like to access. *required
+     * @param  {int} requestObj.id The id of the record you'd like to delete. *required
+     * @return {httpPromise} The output will return a $promise, with success/data or an error
+     */
+    this.delete = function(obj) {
+      return requestResource.delete({path: obj.options.path, endpoint: obj.options.endpoint, id: obj.id}).$promise;
+    };
+&nbsp;
+    /**
+     * @ngdoc
+     * @name httpService.update
+     * @methodOf kronos.apps.services..httpService
+     * @function
+     * @description
+     * Method to update data through an API
+     * @example
+     * httpService.update({payload, options:{path: 'localhost:4100', endpoint: 'assets'}});
+     * @param {object} requestObj pass a request Object containing the following paramseters *required
+     * @param  {object} requestObj.options set the path, endpoint and more in the future. *required
+     * @param  {string} requestObj.options.path The path of the URL you'd like to access. *required
+     * @param  {string} requestObj.options.endpoint The name of the endpoint you'd like to access. *required
+     * @param  {object} requestObj.payload   The data payload object per requirements of the api *required
+     * @return {httpPromise} The output will return a $promise, with success/data or an error
+     */
+    this.update = function (obj) {
+      return requestResource.update({path: obj.options.path, endpoint: obj.options.endpoint}, obj.payload).$promise;
+    };
+&nbsp;
+    /**
+     * @ngdoc
+     * @name httpService.read
+     * @methodOf kronos.apps.services..httpService
+     * @function
+     * @description
+     * Method to read data from an API
+     * @example
+     * httpService.read({id: 401, options:{path: 'localhost:4100', endpoint: 'assets'}});
+     * @param {object} requestObj pass a request Object containing the following parameters *required
+     * @param  {object} requestObj.options set the path, endpoint and more in the future. *required
+     * @param  {string} requestObj.options.path The path of the URL you'd like to access. *required
+     * @param  {string} requestObj.options.endpoint The name of the endpoint you'd like to access. *required
+     * @param  {int=} requestObj.id   The id or identifier of the specific record to fetch.
+     * @return {httpPromise} The output will return a $promise, with success/data or an error
+     */
+    this.read = function (obj, cache) {
+      setReadActions(obj, cache);
+      return requestResource.read({path: obj.options.path, endpoint: obj.options.endpoint, limit: obj.options.limit, id: obj.id}).$promise;
+    };
+&nbsp;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jun 24 2016 10:46:44 GMT-0400 (EDT)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

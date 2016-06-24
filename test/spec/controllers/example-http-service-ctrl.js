@@ -5,14 +5,24 @@ describe('Controller: exampleHttpServiceCtrl', function () {
   // load the controller's module
   beforeEach(module('kronos.apps.services'));
 
-  var httpServiceCtrl,
-    scope;
+  var httpServiceCtrl;
+  var dataService;
+  var scope;
+  var $q;
+  var deferred;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function ($injector, $controller, $rootScope) {
     scope = $rootScope.$new();
+    dataService = $injector.get('dataService');
+    $q = $injector.get('$q');
+
+    deferred = $q.defer();
+    spyOn(dataService, 'http').and.returnValue(deferred.promise);
+
     httpServiceCtrl = $controller('exampleHttpServiceCtrl', {
-      $scope: scope
+      $scope: scope,
+      dataService: dataService
       // place here mocked dependencies
     });
   }));
@@ -59,17 +69,33 @@ describe('Controller: exampleHttpServiceCtrl', function () {
   });
 
   describe('getList', function(){
+    beforeEach(inject(function(){
+      spyOn(httpServiceCtrl, 'getList').and.callThrough();
+    }));
+
     it('should be defined', function () {
       expect(httpServiceCtrl.getList).toBeDefined();
     });
+
+    it('should call the data service', function () {
+      httpServiceCtrl.getList(false);
+      expect(dataService.http).toHaveBeenCalled();
+    });
   });
-  
+
   describe('getById', function(){
+    beforeEach(inject(function(){
+      spyOn(httpServiceCtrl, 'getById').and.callThrough();
+    }));
+
     it('should be defined', function () {
       expect(httpServiceCtrl.getById).toBeDefined();
     });
 
+    it('should call dataService.http', function () {
+      httpServiceCtrl.getById(22);
+      expect(dataService.http).toHaveBeenCalled();
+    });
   });
-
 
 });
