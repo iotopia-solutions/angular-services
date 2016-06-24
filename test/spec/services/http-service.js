@@ -40,7 +40,7 @@ describe('Service: httpService', function() {
     it('should make a GET request when calling read with an id', function() {
       var mockId = 1;
       httpBackend.expectGET(/assets\/\d+$/).respond(mockData[0]);
-        httpService.read({id: mockId, options:{path: path, endpoint: 'assets'}}).then(function(response) {
+        httpService.read({id: mockId, options:{path: path, endpoint: 'assets'}}, true).then(function(response) {
         expect(response.id).toBe(mockId);
       });
       httpBackend.flush();
