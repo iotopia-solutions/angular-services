@@ -5,3 +5,4 @@
 /bower_components
 .gitattributes
 /.DS_Store
+/test

@@ -71,6 +71,7 @@ describe('Controller: exampleHttpServiceCtrl', function () {
   describe('getList', function(){
     beforeEach(inject(function(){
       spyOn(httpServiceCtrl, 'getList').and.callThrough();
+      spyOn(httpServiceCtrl, 'setData').and.callThrough();
     }));
 
     it('should be defined', function () {
@@ -81,11 +82,19 @@ describe('Controller: exampleHttpServiceCtrl', function () {
       httpServiceCtrl.getList(false);
       expect(dataService.http).toHaveBeenCalled();
     });
+
+    it('should call httpServiceCtrl.setData', function () {
+      httpServiceCtrl.getList(false);
+      deferred.resolve();
+      scope.$apply();
+      expect(httpServiceCtrl.setData).toHaveBeenCalled();
+    });
   });
 
   describe('getById', function(){
     beforeEach(inject(function(){
       spyOn(httpServiceCtrl, 'getById').and.callThrough();
+      spyOn(httpServiceCtrl, 'setData').and.callThrough();
     }));
 
     it('should be defined', function () {
@@ -95,6 +104,13 @@ describe('Controller: exampleHttpServiceCtrl', function () {
     it('should call dataService.http', function () {
       httpServiceCtrl.getById(22);
       expect(dataService.http).toHaveBeenCalled();
+    });
+
+    it('should call httpServiceCtrl.setData', function () {
+      httpServiceCtrl.getById(22);
+      deferred.resolve();
+      scope.$apply();
+      expect(httpServiceCtrl.setData).toHaveBeenCalled();
     });
   });
 
