@@ -12,7 +12,7 @@ var agGrid;
 agGrid.initialiseAgGridWithAngular1(angular);
 
 angular.module('kronos.apps.services')
-  .controller('exampleSchedulerCtrl', function ($scope, dataService, $http) {
+  .controller('exampleSchedulerCtrl', function ($scope, dataService) {
 
     var $this = this;
 
@@ -69,17 +69,28 @@ angular.module('kronos.apps.services')
      console.log('setupGrid() finished in: ' + (end - start) + ' milliseconds.');
    };
 
-   this.agGridTest = function(){
+   this.employeeDataSuccess = function(data){
+     var start = performance.now();
+     var array = dataService.deserializeArray(data);
+     var grid = this.createEmployeeData(array);
+     var end = performance.now();
+     console.log('employeeDataSuccess() finished in: ' + (end - start) + ' milliseconds.');
+     return this.setupGrid(grid);
+   };
+
+   this.employeeGrid = function(){
     var start = performance.now();
-    $http({
-      method: 'POST',
-      url: 'https://kronos-scheduler-demo.iotopia-solutions.com/page/wfc/bridge/ngui/schedule/rest/1.0/subjectItems'
-    }).then(function successCallback(response) {
-        $this.setupGrid($this.createEmployeeData(dataService.deserializeArray(response.data)));
-        var end = performance.now();
-        console.log('Data loaded and grid rendered in: ' + (end - start) + ' milliseconds.');
-      }, function errorCallback(response) {
-        console.log('error', response);
+    var httpRequest = {
+      options:{
+        protocol: 'https',
+        path: 'kronos-scheduler-demo.iotopia-solutions.com/page/wfc/bridge/ngui/schedule/rest/1.0',
+        endpoint: 'subjectItems'
+      }
+    };
+    dataService.http('create', httpRequest, false).then(function(data){
+      var end = performance.now();
+      console.log('employeeGrid + dataService.http() finished in: ' + (end - start) + ' milliseconds.');
+      return $this.employeeDataSuccess(data);
     });
    };
 

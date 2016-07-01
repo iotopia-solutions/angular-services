@@ -11,13 +11,8 @@
 */
 angular.module('kronos.apps.services')
   .service('httpService', function ($resource) {
-
-    function urlPath(){
-      return 'https://kronos-scheduler-demo.iotopia-solutions.com/page/wfc/bridge/ngui/schedule/rest/1.0';
-    }
-
     var request = {
-      'url':  urlPath() + '/:endpoint/:id',
+      'url': '/:endpoint/:id',
       'actions': {
         'read': {
           'method': 'GET'
@@ -38,12 +33,19 @@ angular.module('kronos.apps.services')
       }
     };
 
-    var requestResource = $resource(request.url, request.parameters, request.actions);
-
-    function setReadActions(obj, cache){
-     request.actions.read.isArray = obj.id ? false : true;
-     request.actions.read.cache = cache ? cache : false;
+    function setActions(action, obj, cache){
+     request.actions[action].isArray = obj.id ? false : true;
+     request.actions[action].cache = cache ? cache : false;
     }
+
+    function createBasePath(obj){
+      return obj.options.protocol + '://' + obj.options.path;
+    }
+
+    this.requestResource = function(obj){
+      var path = createBasePath(obj);
+      return $resource(((path) + request.url), request.parameters, request.actions);
+    };
 
     /**
      * @ngdoc
@@ -61,7 +63,9 @@ angular.module('kronos.apps.services')
      * @param  {object} requestObj.payload The data payload object per requirements of the api *required
      * @return {httpPromise} The output will return a $promise, with success/data or an error
      */
-    this.create = function (obj) {
+    this.create = function (obj, cache) {
+      var requestResource = this.requestResource(obj);
+      setActions('create', obj, cache);
       return requestResource.create({endpoint: obj.options.endpoint}, obj.payload).$promise;
     };
 
@@ -82,6 +86,7 @@ angular.module('kronos.apps.services')
      * @return {httpPromise} The output will return a $promise, with success/data or an error
      */
     this.delete = function(obj) {
+      var requestResource = this.requestResource(obj);
       return requestResource.delete({endpoint: obj.options.endpoint, id: obj.id}).$promise;
     };
 
@@ -102,6 +107,7 @@ angular.module('kronos.apps.services')
      * @return {httpPromise} The output will return a $promise, with success/data or an error
      */
     this.update = function (obj) {
+      var requestResource = this.requestResource(obj);
       return requestResource.update({endpoint: obj.options.endpoint}, obj.payload).$promise;
     };
 
@@ -122,7 +128,8 @@ angular.module('kronos.apps.services')
      * @return {httpPromise} The output will return a $promise, with success/data or an error
      */
     this.read = function (obj, cache) {
-      setReadActions(obj, cache);
+      var requestResource = this.requestResource(obj);
+      setActions('read', obj, cache);
       return requestResource.read({endpoint: obj.options.endpoint, limit: obj.options.limit, id: obj.id}).$promise;
     };
 
