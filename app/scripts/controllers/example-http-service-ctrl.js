@@ -51,6 +51,7 @@ angular.module('kronos.apps.services')
     this.getList = function(scope){
       var httpRequest = {
         options:{
+          protocol: 'http',
           path: serverPath,
           endpoint: 'assets',
           limit: 10
@@ -65,6 +66,7 @@ angular.module('kronos.apps.services')
      var httpRequest = {
        id: id,
        options:{
+         protocol: 'http',
          path: serverPath,
          endpoint: 'assets'
        }
@@ -78,6 +80,7 @@ angular.module('kronos.apps.services')
      var httpRequest = {
        payload: payload,
        options:{
+         protocol: 'http',
          path: serverPath,
          endpoint: 'assets'
        }
@@ -90,6 +93,7 @@ angular.module('kronos.apps.services')
    this.updateItem = function(payload){
     var httpRequest = {
       options:{
+        protocol: 'http',
         path: serverPath,
         endpoint: 'assets'
       },
@@ -103,6 +107,7 @@ angular.module('kronos.apps.services')
   this.deleteItem = function(id){
    var httpRequest = {
      options:{
+       protocol: 'http',
        path: serverPath,
        endpoint: 'assets'
      },

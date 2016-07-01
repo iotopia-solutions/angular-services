@@ -11,7 +11,8 @@
 angular
   .module('kronos.apps.services', [
     'ngResource',
-    'ngRoute'
+    'ngRoute',
+    'agGrid'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -19,6 +20,11 @@ angular
         templateUrl: 'views/main.html',
         controller: 'exampleHttpServiceCtrl',
         controllerAs: 'exampleHttpServiceCtrl'
+      })
+      .when('/scheduler', {
+        templateUrl: 'views/scheduler.html',
+        controller: 'exampleSchedulerCtrl',
+        controllerAs: 'exampleSchedulerCtrl'
       })
       .otherwise({
         redirectTo: '/'

@@ -41,4 +41,12 @@ angular.module('kronos.apps.services')
       return httpService[method](params, cache).then(success, error);
     };
 
+    this.deserializeArray = function(dataFromAPI){
+      var deserialized = [];
+      angular.forEach(dataFromAPI, function(data){
+        deserialized.push(data[0]);
+      });
+      return deserialized;
+    };
+
 });

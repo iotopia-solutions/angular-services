@@ -12,8 +12,12 @@
 angular.module('kronos.apps.services')
   .service('httpService', function ($resource) {
 
+    function urlPath(){
+      return 'https://kronos-scheduler-demo.iotopia-solutions.com/page/wfc/bridge/ngui/schedule/rest/1.0';
+    }
+
     var request = {
-      'url': 'http://' +'/:path' + '/:endpoint/:id',
+      'url':  urlPath() + '/:endpoint/:id',
       'actions': {
         'read': {
           'method': 'GET'
@@ -29,8 +33,6 @@ angular.module('kronos.apps.services')
         }
       },
       'parameters':{
-        'path' : '@path',
-        'endpoint': '@endpoint',
         'id': '@id',
         'limit' : '@limit'
       }
@@ -60,7 +62,7 @@ angular.module('kronos.apps.services')
      * @return {httpPromise} The output will return a $promise, with success/data or an error
      */
     this.create = function (obj) {
-      return requestResource.create({path: obj.options.path, endpoint: obj.options.endpoint}, obj.payload).$promise;
+      return requestResource.create({endpoint: obj.options.endpoint}, obj.payload).$promise;
     };
 
     /**
@@ -80,7 +82,7 @@ angular.module('kronos.apps.services')
      * @return {httpPromise} The output will return a $promise, with success/data or an error
      */
     this.delete = function(obj) {
-      return requestResource.delete({path: obj.options.path, endpoint: obj.options.endpoint, id: obj.id}).$promise;
+      return requestResource.delete({endpoint: obj.options.endpoint, id: obj.id}).$promise;
     };
 
     /**
@@ -100,7 +102,7 @@ angular.module('kronos.apps.services')
      * @return {httpPromise} The output will return a $promise, with success/data or an error
      */
     this.update = function (obj) {
-      return requestResource.update({path: obj.options.path, endpoint: obj.options.endpoint}, obj.payload).$promise;
+      return requestResource.update({endpoint: obj.options.endpoint}, obj.payload).$promise;
     };
 
     /**
@@ -121,7 +123,7 @@ angular.module('kronos.apps.services')
      */
     this.read = function (obj, cache) {
       setReadActions(obj, cache);
-      return requestResource.read({path: obj.options.path, endpoint: obj.options.endpoint, limit: obj.options.limit, id: obj.id}).$promise;
+      return requestResource.read({endpoint: obj.options.endpoint, limit: obj.options.limit, id: obj.id}).$promise;
     };
 
 });
