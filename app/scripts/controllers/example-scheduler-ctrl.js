@@ -12,7 +12,7 @@ var agGrid;
 agGrid.initialiseAgGridWithAngular1(angular);
 
 angular.module('kronos.apps.services')
-  .controller('exampleSchedulerCtrl', function ($scope, dataService) {
+  .controller('exampleSchedulerCtrl', function ($scope, $q, dataService) {
 
     var $this = this;
 
@@ -75,7 +75,23 @@ angular.module('kronos.apps.services')
      var grid = this.createEmployeeData(array);
      var end = performance.now();
      console.log('employeeDataSuccess() finished in: ' + (end - start) + ' milliseconds.');
-     return this.setupGrid(grid);
+     this.setupGrid(grid);
+   };
+
+   this.makeScheduleApiCall = function(endpoint){
+     var start = performance.now();
+     var httpRequest = {
+       options:{
+         protocol: 'https',
+         path: 'kronos-scheduler-demo.iotopia-solutions.com/page/wfc/bridge/ngui/schedule/rest/1.0',
+         endpoint: endpoint
+       }
+     };
+     dataService.http('read', httpRequest, true).then(function(data){
+       var end = performance.now();
+       console.log('makeScheduleApiCall(' + endpoint + ') finished in: ' + (end - start) + ' milliseconds.');
+       $this.setData(endpoint, data, false);
+     });
    };
 
    this.employeeGrid = function(){
@@ -90,8 +106,20 @@ angular.module('kronos.apps.services')
     dataService.http('read', httpRequest, true).then(function(data){
       var end = performance.now();
       console.log('employeeGrid + dataService.http() finished in: ' + (end - start) + ' milliseconds.');
-      return $this.employeeDataSuccess(data);
+      $this.employeeDataSuccess(data);
     });
    };
+
+
+  this.getInParallel = function(){
+    var promises = [
+       this.makeScheduleApiCall('subjectItems'),
+       this.makeScheduleApiCall('genieColumnData'),
+       this.makeScheduleApiCall('visibleEntities')
+    ];
+    $q.all(promises).then(function(){
+      $scope.parallel = true;
+    });
+  };
 
 });
