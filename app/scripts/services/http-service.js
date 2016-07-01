@@ -58,6 +58,7 @@ angular.module('kronos.apps.services')
      * httpService.create(payload, {options:{path: 'localhost:4100', endpoint: 'assets'}});
      * @param {object} requestObj pass a request Object containing the following parameters *required
      * @param  {object} requestObj.options set the path, endpoint and more in the future. *required
+     * @param  {string} requestObj.options.protocol The protocol of the URL you'd like to access. *required
      * @param  {string} requestObj.options.path The path of the URL you'd like to access. *required
      * @param  {string} requestObj.options.endpoint The name of the endpoint you'd like to access. *required
      * @param  {object} requestObj.payload The data payload object per requirements of the api *required
@@ -80,6 +81,7 @@ angular.module('kronos.apps.services')
      * httpService.update({id: 43, options:{path: 'localhost:4100', endpoint: 'assets'}});
      * @param {object} requestObj pass a request Object containing the following parameters *required
      * @param  {object} requestObj.options set the path, endpoint and more in the future. *required
+     * @param  {string} requestObj.options.protocol The protocol of the URL you'd like to access. *required
      * @param  {string} requestObj.options.path The path of the URL you'd like to access. *required
      * @param  {string} requestObj.options.endpoint The name of the endpoint you'd like to access. *required
      * @param  {int} requestObj.id The id of the record you'd like to delete. *required
@@ -101,6 +103,7 @@ angular.module('kronos.apps.services')
      * httpService.update({payload, options:{path: 'localhost:4100', endpoint: 'assets'}});
      * @param {object} requestObj pass a request Object containing the following paramseters *required
      * @param  {object} requestObj.options set the path, endpoint and more in the future. *required
+     * @param  {string} requestObj.options.protocol The protocol of the URL you'd like to access. *required
      * @param  {string} requestObj.options.path The path of the URL you'd like to access. *required
      * @param  {string} requestObj.options.endpoint The name of the endpoint you'd like to access. *required
      * @param  {object} requestObj.payload   The data payload object per requirements of the api *required
@@ -122,6 +125,7 @@ angular.module('kronos.apps.services')
      * httpService.read({id: 401, options:{path: 'localhost:4100', endpoint: 'assets'}});
      * @param {object} requestObj pass a request Object containing the following parameters *required
      * @param  {object} requestObj.options set the path, endpoint and more in the future. *required
+     * @param  {string} requestObj.options.protocol The protocol of the URL you'd like to access. *required
      * @param  {string} requestObj.options.path The path of the URL you'd like to access. *required
      * @param  {string} requestObj.options.endpoint The name of the endpoint you'd like to access. *required
      * @param  {int=} requestObj.id   The id or identifier of the specific record to fetch.

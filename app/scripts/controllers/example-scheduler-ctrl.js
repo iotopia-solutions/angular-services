@@ -87,7 +87,7 @@ angular.module('kronos.apps.services')
         endpoint: 'subjectItems'
       }
     };
-    dataService.http('create', httpRequest, false).then(function(data){
+    dataService.http('read', httpRequest, true).then(function(data){
       var end = performance.now();
       console.log('employeeGrid + dataService.http() finished in: ' + (end - start) + ' milliseconds.');
       return $this.employeeDataSuccess(data);
