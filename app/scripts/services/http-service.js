@@ -46,7 +46,7 @@ angular.module('kronos.apps.services')
     /**
      * @ngdoc
      * @name httpService.create
-     * @methodOf kronos.apps.services..httpService
+     * @methodOf kronos.apps.services.httpService
      * @function
      * @description
      * Method to create data through an API
@@ -66,7 +66,7 @@ angular.module('kronos.apps.services')
     /**
      * @ngdoc
      * @name httpService.delete
-     * @methodOf kronos.apps.services..httpService
+     * @methodOf kronos.apps.services.httpService
      * @function
      * @description
      * Method to DELETE data through an API
@@ -86,7 +86,7 @@ angular.module('kronos.apps.services')
     /**
      * @ngdoc
      * @name httpService.update
-     * @methodOf kronos.apps.services..httpService
+     * @methodOf kronos.apps.services.httpService
      * @function
      * @description
      * Method to update data through an API
@@ -106,7 +106,7 @@ angular.module('kronos.apps.services')
     /**
      * @ngdoc
      * @name httpService.read
-     * @methodOf kronos.apps.services..httpService
+     * @methodOf kronos.apps.services.httpService
      * @function
      * @description
      * Method to read data from an API
