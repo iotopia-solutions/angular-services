@@ -22,7 +22,7 @@ angular.module('kronos.apps.services')
           'method': 'POST'
         },
         'update': {
-          'method': 'PUT'
+          'method': 'PATCH'
         },
         'delete': {
           'method': 'DELETE'

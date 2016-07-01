@@ -74,4 +74,42 @@ angular.module('kronos.apps.services')
      });
    };
 
+   this.createItem = function(payload){
+     var httpRequest = {
+       payload: payload,
+       options:{
+         path: serverPath,
+         endpoint: 'assets'
+       }
+     };
+     dataService.http('create', httpRequest).then(function(data){
+       console.log('Successfully Created', data.id);
+     });
+   };
+
+   this.updateItem = function(payload){
+    var httpRequest = {
+      options:{
+        path: serverPath,
+        endpoint: 'assets'
+      },
+      payload: payload
+    };
+    dataService.http('update', httpRequest).then(function(data){
+      console.log('Successfully updated', data);
+    });
+  };
+
+  this.deleteItem = function(id){
+   var httpRequest = {
+     options:{
+       path: serverPath,
+       endpoint: 'assets'
+     },
+     id: id
+   };
+   dataService.http('delete', httpRequest).then(function(data){
+     console.log('Successfully deleted', data);
+   });
+ };
 });

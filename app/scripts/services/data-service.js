@@ -10,14 +10,14 @@
 angular.module('kronos.apps.services')
   .service('dataService', function (httpService) {
 
-    function success(dataFromAPI){ 
+    this.success = function(dataFromAPI){
       return dataFromAPI;
-    }
+    };
 
     //TODO: expand error handling, or show via dialog
-    function error(errorFromAPI){
+    this.error = function(errorFromAPI){
       console.log('error', errorFromAPI);
-    }
+    };
 
     /**
      * @ngdoc
@@ -38,7 +38,7 @@ angular.module('kronos.apps.services')
      * @return {httpPromise} The output will return a $promise, with success/data or a console error will occur
      */
     this.http = function(method, params, cache){
-      return httpService[method](params, cache).then(success, error);
+      return httpService[method](params, cache).then(this.success, this.error).$promise;
     };
 
 });
