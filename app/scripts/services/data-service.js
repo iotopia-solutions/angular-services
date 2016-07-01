@@ -38,7 +38,15 @@ angular.module('kronos.apps.services')
      * @return {httpPromise} The output will return a $promise, with success/data or a console error will occur
      */
     this.http = function(method, params, cache){
-      return httpService[method](params, cache).then(this.success, this.error).$promise;
+      return httpService[method](params, cache).then(this.success, this.error);
+    };
+
+    this.deserializeArray = function(dataFromAPI){
+      var deserialized = [];
+      angular.forEach(dataFromAPI, function(data){
+        deserialized.push(data[0]);
+      });
+      return deserialized;
     };
 
 });
