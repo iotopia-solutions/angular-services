@@ -1,6 +1,6 @@
 {
   "name": "kronos.apps.services",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
     "angular": "^1.5.0",
     "angular-resource": "^1.5.0",
@@ -8,8 +8,7 @@
     "angular-animate": "^1.5.0"
   },
   "devDependencies": {
-    "angular-mocks": "^1.5.0",
-    "ag-grid": "^4.2.7"
+    "angular-mocks": "^1.5.0"
   },
   "appPath": "app",
   "moduleName": "kronos.apps.services"

@@ -134,7 +134,7 @@ angular.module('kronos.apps.services')
     this.read = function (obj, cache) {
       var requestResource = this.requestResource(obj);
       setActions('read', obj, cache);
-      return requestResource.read({endpoint: obj.options.endpoint, limit: obj.options.limit, id: obj.id}).$promise;
+      return requestResource.read({endpoint: obj.options.endpoint, limit: obj.options.limit, id: obj.id, Range: obj.options.range}).$promise;
     };
 
 });
