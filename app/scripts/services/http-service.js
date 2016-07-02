@@ -11,9 +11,8 @@
 */
 angular.module('kronos.apps.services')
   .service('httpService', function ($resource) {
-
     var request = {
-      'url': 'http://' +'/:path' + '/:endpoint/:id',
+      'url': '/:endpoint/:id',
       'actions': {
         'read': {
           'method': 'GET'
@@ -29,19 +28,24 @@ angular.module('kronos.apps.services')
         }
       },
       'parameters':{
-        'path' : '@path',
-        'endpoint': '@endpoint',
         'id': '@id',
         'limit' : '@limit'
       }
     };
 
-    var requestResource = $resource(request.url, request.parameters, request.actions);
-
-    function setReadActions(obj, cache){
-     request.actions.read.isArray = obj.id ? false : true;
-     request.actions.read.cache = cache ? cache : false;
+    function setActions(action, obj, cache){
+     request.actions[action].isArray = obj.id ? false : true;
+     request.actions[action].cache = cache ? cache : false;
     }
+
+    function createBasePath(obj){
+      return obj.options.protocol + '://' + obj.options.path;
+    }
+
+    this.requestResource = function(obj){
+      var path = createBasePath(obj);
+      return $resource(((path) + request.url), request.parameters, request.actions);
+    };
 
     /**
      * @ngdoc
@@ -54,13 +58,16 @@ angular.module('kronos.apps.services')
      * httpService.create(payload, {options:{path: 'localhost:4100', endpoint: 'assets'}});
      * @param {object} requestObj pass a request Object containing the following parameters *required
      * @param  {object} requestObj.options set the path, endpoint and more in the future. *required
+     * @param  {string} requestObj.options.protocol The protocol of the URL you'd like to access. *required
      * @param  {string} requestObj.options.path The path of the URL you'd like to access. *required
      * @param  {string} requestObj.options.endpoint The name of the endpoint you'd like to access. *required
      * @param  {object} requestObj.payload The data payload object per requirements of the api *required
      * @return {httpPromise} The output will return a $promise, with success/data or an error
      */
-    this.create = function (obj) {
-      return requestResource.create({path: obj.options.path, endpoint: obj.options.endpoint}, obj.payload).$promise;
+    this.create = function (obj, cache) {
+      var requestResource = this.requestResource(obj);
+      setActions('create', obj, cache);
+      return requestResource.create({endpoint: obj.options.endpoint}, obj.payload).$promise;
     };
 
     /**
@@ -74,13 +81,15 @@ angular.module('kronos.apps.services')
      * httpService.update({id: 43, options:{path: 'localhost:4100', endpoint: 'assets'}});
      * @param {object} requestObj pass a request Object containing the following parameters *required
      * @param  {object} requestObj.options set the path, endpoint and more in the future. *required
+     * @param  {string} requestObj.options.protocol The protocol of the URL you'd like to access. *required
      * @param  {string} requestObj.options.path The path of the URL you'd like to access. *required
      * @param  {string} requestObj.options.endpoint The name of the endpoint you'd like to access. *required
      * @param  {int} requestObj.id The id of the record you'd like to delete. *required
      * @return {httpPromise} The output will return a $promise, with success/data or an error
      */
     this.delete = function(obj) {
-      return requestResource.delete({path: obj.options.path, endpoint: obj.options.endpoint, id: obj.id}).$promise;
+      var requestResource = this.requestResource(obj);
+      return requestResource.delete({endpoint: obj.options.endpoint, id: obj.id}).$promise;
     };
 
     /**
@@ -94,13 +103,15 @@ angular.module('kronos.apps.services')
      * httpService.update({payload, options:{path: 'localhost:4100', endpoint: 'assets'}});
      * @param {object} requestObj pass a request Object containing the following paramseters *required
      * @param  {object} requestObj.options set the path, endpoint and more in the future. *required
+     * @param  {string} requestObj.options.protocol The protocol of the URL you'd like to access. *required
      * @param  {string} requestObj.options.path The path of the URL you'd like to access. *required
      * @param  {string} requestObj.options.endpoint The name of the endpoint you'd like to access. *required
      * @param  {object} requestObj.payload   The data payload object per requirements of the api *required
      * @return {httpPromise} The output will return a $promise, with success/data or an error
      */
     this.update = function (obj) {
-      return requestResource.update({path: obj.options.path, endpoint: obj.options.endpoint}, obj.payload).$promise;
+      var requestResource = this.requestResource(obj);
+      return requestResource.update({endpoint: obj.options.endpoint}, obj.payload).$promise;
     };
 
     /**
@@ -114,14 +125,16 @@ angular.module('kronos.apps.services')
      * httpService.read({id: 401, options:{path: 'localhost:4100', endpoint: 'assets'}});
      * @param {object} requestObj pass a request Object containing the following parameters *required
      * @param  {object} requestObj.options set the path, endpoint and more in the future. *required
+     * @param  {string} requestObj.options.protocol The protocol of the URL you'd like to access. *required
      * @param  {string} requestObj.options.path The path of the URL you'd like to access. *required
      * @param  {string} requestObj.options.endpoint The name of the endpoint you'd like to access. *required
      * @param  {int=} requestObj.id   The id or identifier of the specific record to fetch.
      * @return {httpPromise} The output will return a $promise, with success/data or an error
      */
     this.read = function (obj, cache) {
-      setReadActions(obj, cache);
-      return requestResource.read({path: obj.options.path, endpoint: obj.options.endpoint, limit: obj.options.limit, id: obj.id}).$promise;
+      var requestResource = this.requestResource(obj);
+      setActions('read', obj, cache);
+      return requestResource.read({endpoint: obj.options.endpoint, limit: obj.options.limit, id: obj.id, Range: obj.options.range}).$promise;
     };
 
 });

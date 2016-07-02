@@ -31,6 +31,7 @@ angular.module('kronos.apps.services')
      * @param {string} httpService function pass the name of the desired CRUD call example: 'read' *required
      * @param {object} requestObj pass a request Object containing the following parameters *required
      * @param  {object} requestObj.options set the path, endpoint and more in the future. *required
+     * @param  {string} requestObj.options.protocol The protocol of the URL you'd like to access. *required
      * @param  {string} requestObj.options.path The path of the URL you'd like to access. *required
      * @param  {string} requestObj.options.endpoint The name of the endpoint you'd like to access. *required
      * @param  {int=} requestObj.id   The id or identifier of the specific record to fetch.
@@ -38,7 +39,27 @@ angular.module('kronos.apps.services')
      * @return {httpPromise} The output will return a $promise, with success/data or a console error will occur
      */
     this.http = function(method, params, cache){
-      return httpService[method](params, cache).then(this.success, this.error).$promise;
+      return httpService[method](params, cache).then(this.success, this.error);
+    };
+
+    /**
+     * @ngdoc
+     * @name dataService.deserializeArray
+     * @methodOf kronos.apps.services.dataService
+     * @function
+     * @description
+     * A helper method to deserialize arrays from a API call
+     * @example
+     * dataService.deserializeArray(dataFromAPI);
+     * @param {array} dataFromAPI pass a response array *required
+     * @return {array} The output will return a deserialized Array
+     */
+    this.deserializeArray = function(dataFromAPI){
+      var deserialized = [];
+      angular.forEach(dataFromAPI, function(data){
+        deserialized.push(data[0]);
+      });
+      return deserialized;
     };
 
 });

@@ -19,11 +19,13 @@
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <ul class="nav navbar-nav">
-      <li><a ng-href="/docs/">Docs</a></li>
+
+    <ul class="nav navbar-nav navbar-fixed-top navbar-inverse">
+      <li><a href="#/">Crud Demo</a></li>
+      <li><a ng-href="/docs">Docs</a></li>
     </ul>
 
-    <div class="container">
+    <div class="container" style="margin-top:5em;">
     <div ng-view=""></div>
     </div>
 
@@ -42,8 +44,8 @@
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
     </script>
-
     <!-- build:js(.) scripts/vendor.js -->
+
     <!-- bower:js -->
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-resource/angular-resource.js"></script>
